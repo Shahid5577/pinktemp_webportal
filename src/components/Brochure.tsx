@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import { db, storage } from '../../firebaseConfig'; // Adjust the path as needed
+import { collection, addDoc } from 'firebase/firestore'; // Import Firestore functions
+import { ref, uploadBytes } from 'firebase/storage'; // Import Storage functions
 
 // Set the app element for accessibility
 Modal.setAppElement('#root');
@@ -11,16 +14,12 @@ const Brochure: React.FC = () => {
     name: '',
     qualification: '',
     experience: '',
-    resume: null as File | null, // Changed resume type to File | null
+    resume: null as File | null,
     socialMedia: '',
   });
-  // Removed the `submitted` state if not needed, or keep it if you plan to use it
-  // const [submitted, setSubmitted] = useState(false);
 
   const handleOpenModal = () => {
     setModalIsOpen(true);
-    // Reset submission status when modal opens
-    // setSubmitted(false);
   };
 
   const handleCloseModal = () => {
@@ -42,33 +41,34 @@ const Brochure: React.FC = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prevData) => ({
       ...prevData,
-      resume: e.target.files?.[0] || null, // Uses optional chaining and defaults to null
+      resume: e.target.files?.[0] || null,
     }));
   };
-  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const formDataToSend = new FormData();
-    for (const key in formData) {
-      // Type assertion to let TypeScript know that key is a valid key in formData
-      formDataToSend.append(key, formData[key as keyof typeof formData] as string | File); // Append as appropriate
-    }
+    if (formData.resume) {
+      const resumeRef = ref(storage, `resumes/${formData.resume.name}`);
+      try {
+        // Upload resume to Firebase Storage
+        await uploadBytes(resumeRef, formData.resume);
+        
+        // Prepare Firestore data
+        const formDataToFirestore = {
+          name: formData.name,
+          qualification: formData.qualification,
+          experience: formData.experience,
+          socialMedia: formData.socialMedia,
+          resumeUrl: `resumes/${formData.resume.name}`, // You can also store the download URL later
+        };
 
-    try {
-      const response = await fetch('http://localhost:5000/api/submit', {
-        method: 'POST',
-        body: formDataToSend,
-      });
+        // Add form data to Firestore
+        await addDoc(collection(db, 'submissions'), formDataToFirestore);
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Submission successful:', data);
-        // Optionally handle submitted state here
-        setModalIsOpen(false); // Close form modal
-        setAppreciationModalIsOpen(true); // Open appreciation modal
-        // Reset form data
+        // Reset form data and open appreciation modal
+        setModalIsOpen(false);
+        setAppreciationModalIsOpen(true);
         setFormData({
           name: '',
           qualification: '',
@@ -76,11 +76,9 @@ const Brochure: React.FC = () => {
           resume: null,
           socialMedia: '',
         });
-      } else {
-        console.error('Error submitting form:', response.statusText);
+      } catch (error) {
+        console.error('Error submitting form:', error);
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
     }
   };
 
@@ -105,8 +103,8 @@ const Brochure: React.FC = () => {
         {/* Service Plans */}
         <section>
           <h2 className="text-2xl md:text-3xl font-semibold text-center text-blue-500 mb-8">Our Pricing Plans</h2>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
             {/* Basic Plan */}
             <div className="bg-white shadow-lg rounded-lg p-4 sm:p-6 border-t-4 border-blue-500">
               <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">Basic Plan</h3>
@@ -155,7 +153,7 @@ const Brochure: React.FC = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="bg-blue-50 shadow-inner rounded-lg p-6 md:p-8 my-12">
+        <section className="bg-blue-100 shadow-inner rounded-lg p-6 md:p-8 my-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-center text-blue-600 mb-8">Why Choose Us?</h2>
           <ul className="text-gray-700 space-y-4 text-base md:text-lg">
             <li><strong>Affordable Pricing:</strong> We offer high-quality websites at student-friendly prices.</li>
@@ -187,124 +185,74 @@ const Brochure: React.FC = () => {
             </div>
           </div>
         </section>
-        {/* FAQ Section */}
+
+        {/* Get in Touch Section */}
         <section className="my-12">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-blue-500 mb-8">Frequently Asked Questions</h2>
-          <div className="bg-white shadow-md rounded-lg p-6">
-            <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">Q: How long does it take to build my portfolio?</h3>
-            <p className="text-gray-700 mb-6">A: We aim to deliver your website within 7 days after receiving your details.</p>
-            <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">Q: What if I want to make changes later?</h3>
-            <p className="text-gray-700 mb-6">A: We offer maintenance services for one year to ensure your website stays up to date.</p>
-            <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">Q: Can I see examples of your work?</h3>
-            <p className="text-gray-700">A: Absolutely! We can provide you with examples upon request.</p>
+          <h2 className="text-2xl md:text-3xl font-semibold text-center text-blue-600 mb-4">Get in Touch</h2>
+          <p className="text-center text-gray-700 mb-6">Have any questions or want to discuss your project? Feel free to reach out!</p>
+          <div className="flex justify-center">
+            <button onClick={handleOpenModal} className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">Contact Us</button>
           </div>
-        </section>
-        <section className="text-center my-12">
-          <h2 className="text-2xl md:text-3xl font-semibold text-blue-500 mb-4">Get in Touch with Us!</h2>
-          <p className="text-gray-700 mb-6">Ready to create your professional portfolio? Let’s get started today!</p>
-          <button onClick={handleOpenModal} className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
-            Contact Us
-          </button>
         </section>
       </div>
 
       {/* Modal for Form Submission */}
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={handleCloseModal}
-        contentLabel="Portfolio Submission Form"
-        className="fixed inset-0 flex items-center justify-center"
-        overlayClassName="fixed inset-0 bg-black bg-opacity-50"
-      >
-        <div className="bg-white rounded-lg shadow-lg p-6 w-96">
-          <h2 className="text-xl font-semibold text-center text-blue-600 mb-4">Submit Your Details</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="block mb-1 font-medium" htmlFor="name">Name:</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-lg p-2"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block mb-1 font-medium" htmlFor="qualification">Qualification:</label>
-              <input
-                type="text"
-                id="qualification"
-                name="qualification"
-                value={formData.qualification}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-lg p-2"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block mb-1 font-medium" htmlFor="experience">Experience:</label>
-              <input
-                type="text"
-                id="experience"
-                name="experience"
-                value={formData.experience}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg p-2"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block mb-1 font-medium" htmlFor="resume">Resume:</label>
-              <input
-                type="file"
-                id="resume"
-                name="resume"
-                accept=".pdf,.doc,.docx"
-                onChange={handleFileChange}
-                className="w-full border border-gray-300 rounded-lg p-2"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block mb-1 font-medium" htmlFor="socialMedia">Social Media Links:</label>
-              <input
-                type="text"
-                id="socialMedia"
-                name="socialMedia"
-                value={formData.socialMedia}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-lg p-2"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
+      <Modal isOpen={modalIsOpen} onRequestClose={handleCloseModal} className="bg-white rounded-lg p-6 max-w-md mx-auto">
+        <h2 className="text-xl font-bold mb-4">Submit Your Information</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="w-full border border-gray-300 rounded-md p-2"
+          />
+          <input
+            type="text"
+            name="qualification"
+            placeholder="Your Qualification"
+            value={formData.qualification}
+            onChange={handleChange}
+            required
+            className="w-full border border-gray-300 rounded-md p-2"
+          />
+          <input
+            type="text"
+            name="experience"
+            placeholder="Your Experience"
+            value={formData.experience}
+            onChange={handleChange}
+            required
+            className="w-full border border-gray-300 rounded-md p-2"
+          />
+          <input
+            type="file"
+            accept=".pdf"
+            onChange={handleFileChange}
+            required
+            className="w-full border border-gray-300 rounded-md p-2"
+          />
+          <input
+            type="text"
+            name="socialMedia"
+            placeholder="LinkedIn/GitHub Profile Link"
+            value={formData.socialMedia}
+            onChange={handleChange}
+            required
+            className="w-full border border-gray-300 rounded-md p-2"
+          />
+          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Submit</button>
+          <button type="button" onClick={handleCloseModal} className="w-full bg-gray-300 text-gray-800 py-2 rounded-lg hover:bg-gray-400">Cancel</button>
+        </form>
       </Modal>
 
       {/* Appreciation Modal */}
-      <Modal
-        isOpen={appreciationModalIsOpen}
-        onRequestClose={handleCloseAppreciationModal}
-        contentLabel="Thank You"
-        className="fixed inset-0 flex items-center justify-center"
-        overlayClassName="fixed inset-0 bg-black bg-opacity-50"
-      >
-        <div className="bg-white rounded-lg shadow-lg p-6 w-96 text-center">
-          <h2 className="text-xl font-semibold text-blue-600 mb-4">Thank You!</h2>
-          <p className="text-gray-700">We appreciate your submission and will get back to you shortly.</p>
-          <button
-            onClick={handleCloseAppreciationModal}
-            className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
-          >
-            Close
-          </button>
-        </div>
+      <Modal isOpen={appreciationModalIsOpen} onRequestClose={handleCloseAppreciationModal} className="bg-white rounded-lg p-6 max-w-md mx-auto">
+        <h2 className="text-xl font-bold mb-4">Thank You!</h2>
+        <p className="text-gray-700 mb-4">Your submission was successful! We appreciate your interest in our services.</p>
+        <button onClick={handleCloseAppreciationModal} className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">Close</button>
       </Modal>
     </div>
   );

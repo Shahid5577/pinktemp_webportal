@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import emailjs from 'emailjs-com'; // Import EmailJS
 
 // Set the app element for accessibility
 Modal.setAppElement('#root');
 
 const Contact: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    from_name: '',     // User's name
+    from_email: '',    // User's email
+    message: '',       // User's message
+  });
 
   const handleOpenModal = () => {
     setModalIsOpen(true);
@@ -13,15 +19,36 @@ const Contact: React.FC = () => {
 
   const handleCloseModal = () => {
     setModalIsOpen(false);
+    // Reset form data when closing the modal
+    setFormData({
+      from_name: '',
+      from_email: '',
+      message: '',
+    });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Logic for handling form submission can be added here.
 
-    // Open appreciation modal after form submission
-    handleOpenModal();
+    // Send data to EmailJS
+    emailjs
+      .send('service_pxf7cjl', 'template_wjigprs', formData, 'ZKPLE2Tva_VxMg2WO')
+      .then((response) => {
+        console.log('Email sent successfully:', response);
+        // Open appreciation modal after form submission
+        handleOpenModal();
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+      });
   };
 
   return (
@@ -33,20 +60,26 @@ const Contact: React.FC = () => {
         </p>
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
           <div className="mb-6">
-            <label className="block text-gray-600 font-bold mb-2" htmlFor="name">Your Name</label>
+            <label className="block text-gray-600 font-bold mb-2" htmlFor="from_name">Your Name</label>
             <input
               type="text"
-              id="name"
+              id="from_name"
+              name="from_name"  // Matches EmailJS template variable
+              value={formData.from_name}
+              onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               placeholder="Enter your name"
               required
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-600 font-bold mb-2" htmlFor="email">Your Email</label>
+            <label className="block text-gray-600 font-bold mb-2" htmlFor="from_email">Your Email</label>
             <input
               type="email"
-              id="email"
+              id="from_email"
+              name="from_email"  // Matches EmailJS template variable
+              value={formData.from_email}
+              onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               placeholder="Enter your email"
               required
@@ -56,6 +89,9 @@ const Contact: React.FC = () => {
             <label className="block text-gray-600 font-bold mb-2" htmlFor="message">Your Message</label>
             <textarea
               id="message"
+              name="message"  // Matches EmailJS template variable
+              value={formData.message}
+              onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               rows={5}
               placeholder="Enter your message"

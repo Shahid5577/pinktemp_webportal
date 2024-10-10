@@ -34,7 +34,7 @@ if (!fs.existsSync('uploads')) {
 app.post('/api/submit', upload.single('resume'), (req, res) => {
   const { name, qualification, experience, socialMedia } = req.body;
 
-  // Here you can handle the incoming data, for example, save it to a database or file
+  // Handle the incoming data, e.g., save it to a database or file
   const submissionData = {
     name,
     qualification,
@@ -43,7 +43,6 @@ app.post('/api/submit', upload.single('resume'), (req, res) => {
     socialMedia,
   };
 
-  // Log the submission data for demonstration
   console.log('Submission received:', submissionData);
 
   // Respond to the client
