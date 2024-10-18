@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import Icon from '../assets/icon.png';
-
+import Headerbg from '../assets/Headerbg.png';
 
 const Header: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false); // Mobile menu state
@@ -15,7 +15,10 @@ const Header: React.FC = () => {
     setIsNavOpen(false); // Close mobile menu when link is clicked
   };
   return (
-    <header className="sticky top-0 z-50 text-white py-2 bg-white shadow-lg">
+    <header 
+    className="sticky top-0 z-50 text-white py-2 bg-cover bg-center shadow-lg"
+    style={{ backgroundImage: `url(${Headerbg})` }} // Inline background image
+  >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <img src={Icon} alt="Company Logo" className="h-8 mr-2" />
