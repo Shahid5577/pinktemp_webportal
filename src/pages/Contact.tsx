@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import emailjs from 'emailjs-com'; // Import EmailJS
+import emailjs from 'emailjs-com'; 
 
-// Set the app element for accessibility
+
 Modal.setAppElement('#root');
 
 const Contact: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [formData, setFormData] = useState({
-    from_name: '',     // User's name
-    from_email: '',    // User's email
-    message: '',       // User's message
+    from_name: '',     
+    from_email: '',   
+    message: '',       
   });
 
   const handleOpenModal = () => {
@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
 
   const handleCloseModal = () => {
     setModalIsOpen(false);
-    // Reset form data when closing the modal
+    
     setFormData({
       from_name: '',
       from_email: '',
@@ -38,12 +38,12 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Send data to EmailJS
+    
     emailjs
       .send('service_pxf7cjl', 'template_wjigprs', formData, 'ZKPLE2Tva_VxMg2WO')
       .then((response) => {
         console.log('Email sent successfully:', response);
-        // Open appreciation modal after form submission
+       
         handleOpenModal();
       })
       .catch((error) => {
@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
             <input
               type="text"
               id="from_name"
-              name="from_name"  // Matches EmailJS template variable
+              name="from_name"  
               value={formData.from_name}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
@@ -77,7 +77,7 @@ const Contact: React.FC = () => {
             <input
               type="email"
               id="from_email"
-              name="from_email"  // Matches EmailJS template variable
+              name="from_email"  
               value={formData.from_email}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
             <label className="block text-gray-600 font-bold mb-2" htmlFor="message">Your Message</label>
             <textarea
               id="message"
-              name="message"  // Matches EmailJS template variable
+              name="message"  
               value={formData.message}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
@@ -108,7 +108,7 @@ const Contact: React.FC = () => {
           </div>
         </form>
 
-        {/* Appreciation Message Modal */}
+        
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={handleCloseModal}

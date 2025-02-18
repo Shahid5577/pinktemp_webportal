@@ -14,9 +14,8 @@ const Services: React.FC = () => {
         <p className="text-center text-gray-600 mb-8">
           We offer a range of services designed to help you establish a strong online presence.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Service 1 */}
-          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-blue-500">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> 
+          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-blue-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <img
               src={Port}
               alt="Portfolio Website Development"
@@ -27,8 +26,7 @@ const Services: React.FC = () => {
               We design and develop custom portfolio websites that are fully responsive and optimized for all devices.
             </p>
           </div>
-          {/* Service 2 */}
-          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-green-500">
+          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-green-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <img
               src={Seo}
               alt="SEO Optimization"
@@ -39,8 +37,7 @@ const Services: React.FC = () => {
               Our websites come with built-in SEO features to help you rank better on search engines and get noticed.
             </p>
           </div>
-          {/* Service 3 */}
-          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-red-500">
+          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-red-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <img
               src={Support}
               alt="Maintenance & Support"
@@ -51,8 +48,7 @@ const Services: React.FC = () => {
               We offer a full year of hosting, maintenance, and support to ensure your site stays up-to-date and secure.
             </p>
           </div>
-          {/* Service 4 */}
-          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-purple-500">
+          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-purple-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <img
               src={Ecom}
               alt="E-commerce Development"
@@ -63,8 +59,7 @@ const Services: React.FC = () => {
               We build high-performance e-commerce platforms that drive sales and provide a seamless shopping experience.
             </p>
           </div>
-          {/* Service 5 */}
-          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-orange-500">
+          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-orange-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <img
               src={Web}
               alt="Web Application Development"
@@ -75,8 +70,7 @@ const Services: React.FC = () => {
               We create scalable web applications tailored to your business needs, ensuring performance and usability.
             </p>
           </div>
-          {/* Service 6 */}
-          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-teal-500">
+          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-teal-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <img
               src={Uiux}
               alt="UI/UX Design"
@@ -88,7 +82,6 @@ const Services: React.FC = () => {
             </p>
           </div>
         </div>
-        {/* Call to Action Section */}
         <div className="mt-10 text-center">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Interested in Our Services?</h2>
           <p className="text-gray-600 mb-4">

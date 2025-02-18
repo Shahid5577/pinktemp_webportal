@@ -4,10 +4,10 @@ const About: React.FC = () => {
   return (
     <section className="min-h-screen bg-white text-gray-700 py-10">
       <div className="container mx-auto px-4">
-        {/* Title */}
+        
         <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">About Us</h1>
         
-        {/* Introduction Section */}
+        
         <div className="text-center mb-10">
           <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
             Enershas Technologies is a leading company specializing in building professional portfolio websites for students, freelancers, and professionals. 
@@ -16,7 +16,7 @@ const About: React.FC = () => {
           </p>
         </div>
 
-        {/* Our Mission, Vision, and Values */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
           <div>
             <h2 className="text-xl font-bold text-blue-500 mb-4">Our Mission</h2>
@@ -49,7 +49,7 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Why Choose Us */}
+        
         <div className="bg-gray-100 p-8 rounded-lg mb-10">
           <h2 className="text-2xl font-bold text-blue-500 mb-6 text-center">Why Choose Enershas Technologies?</h2>
           <ul className="list-disc list-inside text-gray-600 space-y-4">
@@ -71,7 +71,7 @@ const About: React.FC = () => {
           </ul>
         </div>
 
-        {/* Call to Action */}
+        
         <div className="text-center mt-12">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Ready to Build Your Online Presence?</h2>
           <p className="text-gray-600 mb-6">

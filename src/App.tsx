@@ -6,7 +6,7 @@ import About from '../src/pages/About';
 import Services from '../src/pages/Services';
 import Pricing from '../src/pages/Pricing';
 import Contact from './pages/Contact';
-import Home from './components/Brochure'; // Home page (landing page)
+import Home from './components/Brochure'; 
 
 const App: React.FC = () => {
   return (

@@ -5,19 +5,19 @@ import Icon from '../assets/icon.png';
 import Headerbg from '../assets/Headerbg.png';
 
 const Header: React.FC = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false); // Mobile menu state
+  const [isNavOpen, setIsNavOpen] = useState(false); 
 
   const toggleNav = () => {
-    setIsNavOpen(!isNavOpen); // Toggle mobile menu
+    setIsNavOpen(!isNavOpen); 
   };
 
   const closeNav = () => {
-    setIsNavOpen(false); // Close mobile menu when link is clicked
+    setIsNavOpen(false); 
   };
   return (
     <header 
     className="sticky top-0 z-50 text-white py-2 bg-cover bg-center shadow-lg"
-    style={{ backgroundImage: `url(${Headerbg})` }} // Inline background image
+    style={{ backgroundImage: `url(${Headerbg})` }} 
   >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
+        
         <nav className="hidden md:flex space-x-6">
           <Link to="/about" className="text-gray-700 hover:text-purple-400 font-bold transition duration-300">About</Link>
           <Link to="/services" className="text-gray-700 hover:text-purple-400 font-bold transition duration-300">Services</Link>
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
           <Link to="/contact" className="text-gray-700 hover:text-purple-400 font-bold transition duration-300">Contact</Link> {/* Add Contact Link */}
           </nav>
 
-        {/* Mobile Navigation */}
+        
         <button onClick={toggleNav} className="md:hidden text-gray-700 font-bold focus:outline-none">
           <Bars3Icon className="h-6 w-6" />
         </button>

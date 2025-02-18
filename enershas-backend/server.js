@@ -8,33 +8,33 @@ const path = require('path');
 const app = express();
 const port = 5000;
 
-// Middleware
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Set up multer for file uploads
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Destination for uploaded files
+    cb(null, 'uploads/'); 
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname)); // Rename file to include timestamp
+    cb(null, Date.now() + path.extname(file.originalname)); 
   },
 });
 
 const upload = multer({ storage: storage });
 
-// Create uploads directory if it doesn't exist
+
 if (!fs.existsSync('uploads')) {
   fs.mkdirSync('uploads');
 }
 
-// Endpoint to handle form submissions
+
 app.post('/api/submit', upload.single('resume'), (req, res) => {
   const { name, qualification, experience, socialMedia } = req.body;
 
-  // Handle the incoming data, e.g., save it to a database or file
+  
   const submissionData = {
     name,
     qualification,
@@ -45,11 +45,11 @@ app.post('/api/submit', upload.single('resume'), (req, res) => {
 
   console.log('Submission received:', submissionData);
 
-  // Respond to the client
+  
   res.json({ message: 'Submission received successfully!' });
 });
 
-// Start the server
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

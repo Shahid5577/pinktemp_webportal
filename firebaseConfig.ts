@@ -1,10 +1,10 @@
-// Import the functions you need from the Firebase SDKs
+
 import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore"; // Import Firestore
-import { getStorage } from "firebase/storage"; // Import Firebase Storage
+import { getFirestore } from "firebase/firestore"; 
+import { getStorage } from "firebase/storage"; 
 
-// Your web app's Firebase configuration
+
 const firebaseConfig = {
   apiKey: "AIzaSyCGPLUvC0L2ur0wLufFjArqERjKpu5N8zI",
   authDomain: "enershas-webportal.firebaseapp.com",
@@ -15,11 +15,11 @@ const firebaseConfig = {
   measurementId: "G-XZWY504GFT"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
-const db = getFirestore(app); // Initialize Firestore
-const storage = getStorage(app); // Initialize Firebase Storage
+const db = getFirestore(app); 
+const storage = getStorage(app); 
 
 // Export app, db, and storage
 export { app, db, storage };
