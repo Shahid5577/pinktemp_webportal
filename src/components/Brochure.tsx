@@ -84,21 +84,21 @@ const Brochure: React.FC = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-white min-h-screen py-10">
+    <div className="bg-gradient-to-br from-black to-pink-950 min-h-screen py-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         <section className="text-center mb-10">
-          <h1 className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">Professional Portfolio Website Offer</h1>
-          <p className="text-lg text-gray-600">Crafted by <span className="font-semibold">Enershas Technologies</span></p>
+          <h1 className="text-3xl sm:text-4xl font-bold text-zinc-100 mb-2">Professional Portfolio Website Offer</h1>
+          <p className="text-lg text-gray-400">Crafted by <span className="font-semibold">Enershas Technologies</span></p>
         </section>
 
         
-        <section className="bg-white shadow-md rounded-lg p-6 md:p-8 mb-12">
+        <section className="bg-blue-950 contrast-200 shadow-md rounded-lg p-6 md:p-8 mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-blue-500 mb-4 text-center">Why Do You Need a Portfolio Website?</h2>
-          <p className="text-base md:text-lg text-gray-700 mb-4">
+          <p className="text-base md:text-lg text-gray-400 mb-4 text-center">
             In today’s competitive world, having an <strong>online presence</strong> is essential. Whether you’re a student, freelancer, or job seeker, a portfolio website helps you stand out by showcasing your skills, achievements, and projects.
           </p>
-          <p className="text-base md:text-lg text-gray-700">Let us build a <strong>stunning portfolio website</strong> that will elevate your professional profile and help you achieve your goals.</p>
+          <p className="text-base md:text-lg text-gray-400 text-center">Let us build a <strong>stunning portfolio website</strong> that will elevate your professional profile and help you achieve your goals.</p>
         </section>
 
         
@@ -107,12 +107,12 @@ const Brochure: React.FC = () => {
               Our Pricing Plans
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-blue-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+              <div className="bg-neutral-900 contrast-125 shadow-lg rounded-lg p-6 border-t-4 border-blue-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">Basic Plan</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-100 mb-4">Basic Plan</h3>
                   <p className="text-lg text-blue-500 font-bold">₹2918</p>
-                  <p className="text-gray-600 mb-6">Includes Hosting & Maintenance</p>
-                  <ul className="text-gray-700 space-y-2">
+                  <p className="text-gray-300 mb-6">Includes Hosting & Maintenance</p>
+                  <ul className="text-gray-300 space-y-2">
                     <li>Custom-designed one-page portfolio</li>
                     <li>Responsive across all devices</li>
                     <li>About Me, Projects, Skills, Contact Form</li>
@@ -124,12 +124,12 @@ const Brochure: React.FC = () => {
                   Get Started
                 </button>
               </div>
-              <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-green-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+              <div className="bg-neutral-900 contrast-150 shadow-lg rounded-lg p-6 border-t-4 border-green-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">Professional Plan</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-100 mb-4">Professional Plan</h3>
                   <p className="text-lg text-green-500 font-bold">₹3918</p>
-                  <p className="text-gray-600 mb-6">Best for freelancers & professionals</p>
-                  <ul className="text-gray-700 space-y-2">
+                  <p className="text-gray-300 mb-6">Best for freelancers & professionals</p>
+                  <ul className="text-gray-300 space-y-2">
                     <li>Custom multi-page portfolio</li>
                     <li>Responsive design + SEO optimization</li>
                     <li>Blog integration & content management</li>
@@ -141,12 +141,12 @@ const Brochure: React.FC = () => {
                   Get Started
                 </button>
               </div>
-              <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-red-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+              <div className="bg-neutral-950 contrast-200 shadow-lg rounded-lg p-6 border-t-4 border-red-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">Premium Plan</h3>
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-100 mb-4">Premium Plan</h3>
                     <p className="text-lg text-red-500 font-bold">₹5918</p>
-                    <p className="text-gray-600 mb-6">Perfect for agencies or personal brands</p>
-                    <ul className="text-gray-700 space-y-2">
+                    <p className="text-gray-300 mb-6">Perfect for agencies or personal brands</p>
+                    <ul className="text-gray-300 space-y-2">
                       <li>Custom design with advanced features</li>
                       <li>Integration with external APIs</li>
                       <li>Full e-commerce capabilities (if needed)</li>
@@ -154,7 +154,7 @@ const Brochure: React.FC = () => {
                       <li>1-year hosting, priority maintenance, and updates</li>
                     </ul>
                   </div>
-                  <button onClick={handleOpenModal} className="mt-4 w-full bg-red-500 text-white py-2 rounded-lg shadow-lg hover:bg-red-700 transition duration-300">
+                  <button onClick={handleOpenModal} className="mt-4 w-full bg-red-500 text-white py-2 rounded-lg shadow-lg hover:bg-red-800 transition duration-300">
                     Get Started
                   </button>
               </div>
@@ -163,9 +163,9 @@ const Brochure: React.FC = () => {
 
 
        
-        <section className="bg-blue-100 shadow-inner rounded-lg p-6 md:p-8 my-12">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-blue-600 mb-8">Why Choose Us?</h2>
-          <ul className="text-gray-700 space-y-4 text-base md:text-lg">
+        <section className="bg-pink-950 contrast-150  shadow-xl rounded-lg p-6 md:p-8 my-12">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center text-white mb-8">Why Choose Us?</h2>
+          <ul className="text-zinc-400 space-y-4 text-base md:text-lg">
             <li><strong>Affordable Pricing:</strong> We offer high-quality websites at student-friendly prices.</li>
             <li><strong>Fast Turnaround:</strong> Get your site live in as little as 7 days.</li>
             <li><strong>Experienced Team:</strong> Our team specializes in building professional portfolio websites for students, freelancers, and professionals.</li>
@@ -174,24 +174,24 @@ const Brochure: React.FC = () => {
         </section>
 
        
-        <section>
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-blue-600 mb-8">How It Works</h2>
-          <div className="bg-blue-50 shadow-md rounded-lg p-6 space-y-6 text-gray-700 text-base md:text-lg">
-            <div className="flex items-start space-x-4">
+        <section className="bg-green-900 contrast-200 rounded-lg shadow-lg">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center text-zinc-100 mb-4 pt-4">How It Works</h2>
+          <div className="rounded-lg shadow-lg p-6 space-y-6 text-gray-700 text-base md:text-lg">
+            <div className="flex items-start space-x-4 lg:pl-32">
               <span className="bg-blue-500 text-white font-bold rounded-full h-8 w-8 flex items-center justify-center">1</span>
-              <p><strong>Step 1: Choose a Plan</strong> - Select the package that best fits your needs.</p>
+              <p className='text-zinc-400'><strong>Step 1: Choose a Plan</strong> - Select the package that best fits your needs.</p>
             </div>
-            <div className="flex items-start space-x-4">
+            <div className="flex items-start space-x-4 lg:pl-32">
               <span className="bg-blue-500 text-white font-bold rounded-full h-8 w-8 flex items-center justify-center">2</span>
-              <p><strong>Step 2: Fill the Form</strong> - Provide us with your details and requirements.</p>
+              <p className='text-zinc-400' ><strong>Step 2: Fill the Form</strong> - Provide us with your details and requirements.</p>
             </div>
-            <div className="flex items-start space-x-4">
+            <div className="flex items-start space-x-4 lg:pl-32">
               <span className="bg-blue-500 text-white font-bold rounded-full h-8 w-8 flex items-center justify-center">3</span>
-              <p><strong>Step 3: We Build!</strong> - Our team will start working on your portfolio.</p>
+              <p className='text-zinc-400'><strong>Step 3: We Build!</strong> - Our team will start working on your portfolio.</p>
             </div>
-            <div className="flex items-start space-x-4">
+            <div className="flex items-start space-x-4 lg:pl-32">
               <span className="bg-blue-500 text-white font-bold rounded-full h-8 w-8 flex items-center justify-center">4</span>
-              <p><strong>Step 4: Launch</strong> - Review and launch your professional portfolio website!</p>
+              <p className='text-zinc-400 mb-5'><strong>Step 4: Launch</strong> - Review and launch your professional portfolio website!</p>
             </div>
           </div>
         </section>
@@ -199,9 +199,9 @@ const Brochure: React.FC = () => {
        
         <section className="my-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-center text-blue-600 mb-4">Get in Touch</h2>
-          <p className="text-center text-gray-700 mb-6">Have any questions or want to discuss your project? Feel free to reach out!</p>
+          <p className="text-center text-gray-300 mb-6">Have any questions or want to discuss your project? Feel free to reach out!</p>
           <div className="flex justify-center">
-            <button onClick={handleOpenModal} className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 hover:scale-105 shadow-md hover:shadow-lg transition-transform duration-300">Contact Us</button>
+            <button onClick={handleOpenModal} className="bg-lime-800 text-white py-2 px-4 rounded-lg hover:bg-cyan-600 hover:scale-105 shadow-md hover:shadow-lg transition-transform duration-300">Contact Us</button>
           </div>
         </section>
       </div>
