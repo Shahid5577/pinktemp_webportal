@@ -17,15 +17,15 @@ const About: React.FC = () => {
         </div>
 
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 p-4 border border-zinc-300 border-1 rounded-lg bg-neutral-700 contrast-200">
+          <div className="border-blue-500 rounded-lg border-2 p-4 border-1 bg-pink-950 cursor-pointer hover:border hover:border-red-500 focus:border-red-500 border-1">
             <h2 className="text-xl font-bold text-zinc-300 mb-4">Our Mission</h2>
             <p className="text-gray-400">
               At Enershas Technologies, our mission is to empower individuals and businesses by providing them with beautifully crafted websites that reflect their true potential. 
               We believe in offering a platform where everyone can showcase their unique talents and services to the world.
             </p>
           </div>
-          <div>
+          <div className="border-blue-500 rounded-lg border-2 p-4 border-1 bg-pink-950 cursor-pointer hover:border hover:border-red-500 focus:border-red-500 border-1">
             <h2 className="text-xl font-bold text-zinc-300 mb-4">Our Vision</h2>
             <p className="text-gray-400">
               We envision a world where everyone can have an impactful online presence. 
@@ -33,14 +33,14 @@ const About: React.FC = () => {
               we aim to be the bridge that connects you to your audience.
             </p>
           </div>
-          <div>
+          <div className="border-blue-500 rounded-lg border-2 p-4 border-1 bg-pink-950 cursor-pointer hover:border hover:border-red-500 focus:border-red-500 border-1">
             <h2 className="text-xl font-bold text-zinc-300 mb-4">Our Values</h2>
             <p className="text-gray-400">
               Integrity, quality, and innovation are the pillars that define Enershas Technologies. 
               We strive to maintain transparency with our clients and constantly innovate to provide the best solutions.
             </p>
           </div>
-          <div>
+          <div className="border-blue-500 rounded-lg border-2 p-4 border-1 bg-pink-950 cursor-pointer hover:border hover:border-red-500 focus:border-red-500 border-1">
             <h2 className="text-xl font-bold text-zinc-300 mb-4">Our Team</h2>
             <p className="text-gray-400">
               Our talented team of developers, designers, and project managers works together to bring your vision to life. 
@@ -50,7 +50,7 @@ const About: React.FC = () => {
         </div>
 
         
-        <div className="bg-gray-900 contrast-200 p-8 rounded-lg mb-10">
+        <div className="bg-gray-900 contrast-200 p-8 rounded-lg mb-10 cursor-pointer hover:border hover:border-red-500 focus:border-red-500 border-1">
           <h2 className="text-2xl font-bold text-blue-500 mb-6 text-center">Why Choose Enershas Technologies?</h2>
           <ul className="list-disc list-inside text-gray-200 space-y-4 lg:pl-10">
             <li>

@@ -107,9 +107,9 @@ const Brochure: React.FC = () => {
               Our Pricing Plans
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-neutral-900 contrast-125 shadow-lg rounded-lg p-6 border-t-4 border-blue-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+              <div className="bg-neutral-900 contrast-125 shadow-lg rounded-lg p-6 border-t-4 border-blue-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer hover:border hover:border-blue-500 focus:border-blue-500 border-1 hover:border-t-4">
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-100 mb-4">Basic Plan</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-100 mb-4 border-l-4 border-blue-500 pl-2">Student Plan</h3>
                   <p className="text-lg text-blue-500 font-bold">₹2918</p>
                   <p className="text-gray-300 mb-6">Includes Hosting & Maintenance</p>
                   <ul className="text-gray-300 space-y-2">
@@ -120,13 +120,13 @@ const Brochure: React.FC = () => {
                     <li>1-year hosting and maintenance</li>
                   </ul>
                 </div>
-                <button onClick={handleOpenModal} className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">
+                <button onClick={handleOpenModal} className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg shadow-lg hover:bg-blue-800 transition duration-300">
                   Get Started
                 </button>
               </div>
-              <div className="bg-neutral-900 contrast-150 shadow-lg rounded-lg p-6 border-t-4 border-green-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+              <div className="bg-neutral-900 contrast-150 shadow-lg rounded-lg p-6 border-t-4 border-green-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer hover:border hover:border-green-500 focus:border-green-500 border-1 hover:border-t-4">
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-100 mb-4">Professional Plan</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-100 mb-4 border-l-4 border-green-500 pl-2">Professional Plan</h3>
                   <p className="text-lg text-green-500 font-bold">₹3918</p>
                   <p className="text-gray-300 mb-6">Best for freelancers & professionals</p>
                   <ul className="text-gray-300 space-y-2">
@@ -137,13 +137,13 @@ const Brochure: React.FC = () => {
                     <li>1-year hosting and advanced maintenance</li>
                   </ul>
                 </div>
-                <button onClick={handleOpenModal} className="mt-4 w-full bg-green-500 text-white py-2 rounded-lg shadow-lg hover:bg-green-700 transition duration-300">
+                <button onClick={handleOpenModal} className="mt-4 w-full bg-green-500 text-white py-2 rounded-lg shadow-lg hover:bg-green-800 transition duration-300">
                   Get Started
                 </button>
               </div>
-              <div className="bg-neutral-950 contrast-200 shadow-lg rounded-lg p-6 border-t-4 border-red-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+              <div className="bg-neutral-950 contrast-200 shadow-lg rounded-lg p-6 border-t-4 border-red-500 h-full flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer hover:border hover:border-red-500 focus:border-red-500 border-1 hover:border-t-4">
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold text-gray-100 mb-4">Premium Plan</h3>
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-100 mb-4 border-l-4 border-red-500 pl-2">Premium Plan</h3>
                     <p className="text-lg text-red-500 font-bold">₹5918</p>
                     <p className="text-gray-300 mb-6">Perfect for agencies or personal brands</p>
                     <ul className="text-gray-300 space-y-2">
@@ -163,7 +163,7 @@ const Brochure: React.FC = () => {
 
 
        
-        <section className="bg-pink-950 contrast-150  shadow-xl rounded-lg p-6 md:p-8 my-12">
+        <section className="bg-pink-950 contrast-150  shadow-xl rounded-lg p-6 md:p-8 my-12 cursor-pointer hover:border hover:border-red-500 focus:border-red-500 border-1">
           <h2 className="text-2xl md:text-3xl font-semibold text-center text-white mb-8">Why Choose Us?</h2>
           <ul className="text-zinc-400 space-y-4 text-base md:text-lg">
             <li><strong>Affordable Pricing:</strong> We offer high-quality websites at student-friendly prices.</li>
@@ -174,7 +174,7 @@ const Brochure: React.FC = () => {
         </section>
 
        
-        <section className="bg-green-900 contrast-200 rounded-lg shadow-lg">
+        <section className="bg-green-900 contrast-200 rounded-lg shadow-lg cursor-pointer hover:border hover:border-green-500 focus:border-green-500 border-1">
           <h2 className="text-2xl md:text-3xl font-semibold text-center text-zinc-100 mb-4 pt-4">How It Works</h2>
           <div className="rounded-lg shadow-lg p-6 space-y-6 text-gray-700 text-base md:text-lg">
             <div className="flex items-start space-x-4 lg:pl-32">
@@ -207,8 +207,8 @@ const Brochure: React.FC = () => {
       </div>
 
      
-      <Modal isOpen={modalIsOpen} onRequestClose={handleCloseModal} className="bg-white rounded-lg p-6 max-w-md mx-auto">
-        <h2 className="text-xl font-bold mb-4">Submit Your Information</h2>
+      <Modal isOpen={modalIsOpen} onRequestClose={handleCloseModal} className="bg-neutral-900 contrast-125 rounded-lg p-6 max-w-md mx-auto mt-20">
+        <h2 className="text-xl font-bold mb-4 text-white text-center">Submit Your Information</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
@@ -217,7 +217,7 @@ const Brochure: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg text-zinc-100 focus:outline-none focus:border-blue-500 placeholder:text-zinc-400 bg-pink-950 contrast-125"
           />
           <input
             type="text"
@@ -226,7 +226,7 @@ const Brochure: React.FC = () => {
             value={formData.qualification}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg text-zinc-100 focus:outline-none focus:border-blue-500 placeholder:text-zinc-400 bg-pink-950 contrast-125"
           />
           <input
             type="text"
@@ -235,14 +235,14 @@ const Brochure: React.FC = () => {
             value={formData.experience}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full border border-gray-300 rounded-lg text-zinc-100 focus:outline-none focus:border-blue-500 placeholder:text-zinc-400 bg-pink-950 contrast-125 px-2 py-2"
           />
           <input
             type="file"
             accept=".pdf"
             onChange={handleFileChange}
             required
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full rounded-md px-4 py-2 border border-gray-300 rounded-lg text-zinc-100 focus:outline-none focus:border-blue-500 placeholder:text-zinc-400 bg-pink-950 contrast-125"
           />
           <input
             type="text"
@@ -251,17 +251,17 @@ const Brochure: React.FC = () => {
             value={formData.socialMedia}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg text-zinc-100 focus:outline-none focus:border-blue-500 placeholder:text-zinc-400 bg-pink-950 contrast-125"
           />
           <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Submit</button>
-          <button type="button" onClick={handleCloseModal} className="w-full bg-gray-300 text-gray-800 py-2 rounded-lg hover:bg-gray-400">Cancel</button>
+          <button type="button" onClick={handleCloseModal} className="w-full bg-pink-700 text-yellow-100 py-2 rounded-lg hover:bg-red-800">Cancel</button>
         </form>
       </Modal>
 
  
-      <Modal isOpen={appreciationModalIsOpen} onRequestClose={handleCloseAppreciationModal} className="bg-white rounded-lg p-6 max-w-md mx-auto">
-        <h2 className="text-xl font-bold mb-4">Thank You!</h2>
-        <p className="text-gray-700 mb-4">Your submission was successful! We appreciate your interest in our services.</p>
+      <Modal isOpen={appreciationModalIsOpen} onRequestClose={handleCloseAppreciationModal} className="bg-neutral-900 rounded-lg p-6 max-w-md mx-auto mt-20">
+        <h2 className="text-xl font-bold mb-4 text-zinc-300">Thank You!</h2>
+        <p className="text-gray-700 mb-4 text-zinc-400">Your submission was successful! We appreciate your interest in our services.</p>
         <button onClick={handleCloseAppreciationModal} className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">Close</button>
       </Modal>
     </div>

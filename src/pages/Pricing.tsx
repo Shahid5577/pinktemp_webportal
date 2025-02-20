@@ -71,7 +71,7 @@ const Pricing: React.FC = () => {
               alt="Basic Plan"
               className="w-full h-32 object-cover rounded-md mb-4 border-2 border-zinc-500"
             />
-            <h3 className="text-lg font-semibold text-yellow-300 mb-4">Basic Plan</h3>
+            <h3 className="text-lg font-semibold text-yellow-300 mb-4 border-l-4 border-blue-500 pl-2">Student Plan</h3>
             <p className="text-3xl text-blue-500 font-bold bg-yellow-200 py-2 px-4 rounded-lg text-center">
               ₹2918
             </p>
@@ -89,7 +89,7 @@ const Pricing: React.FC = () => {
               alt="Professional Plan"
               className="w-full h-32 object-cover rounded-md mb-4 border-2 border-zinc-500"
             />
-            <h3 className="text-lg font-semibold text-yellow-300 mb-4">Professional Plan</h3>
+            <h3 className="text-lg font-semibold text-yellow-300 mb-4 border-l-4 border-green-500 pl-2">Professional Plan</h3>
             <p className="text-3xl text-green-500 font-bold bg-yellow-200 py-2 px-4 rounded-lg text-center">
               ₹3918
             </p>
@@ -107,7 +107,7 @@ const Pricing: React.FC = () => {
               alt="Premium Plan"
               className="w-full h-32 object-cover rounded-md mb-4 border-2 border-zinc-500"
             />
-            <h3 className="text-lg font-semibold text-yellow-300 mb-4">Premium Plan</h3>
+            <h3 className="text-lg font-semibold text-yellow-300 mb-4 border-l-4 border-red-500 pl-2">Premium Plan</h3>
             <p className="text-3xl text-red-500 font-bold bg-yellow-200 py-2 px-4 rounded-lg text-center">
               ₹5918
             </p>
