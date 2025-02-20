@@ -15,7 +15,7 @@ const Services: React.FC = () => {
           We offer a range of services designed to help you establish a strong online presence.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> 
-          <div className="bg-neutral-900  shadow-lg rounded-lg p-6 border-t-4 border-blue-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+          <div className="bg-neutral-900  shadow-lg rounded-lg p-6 border-t-4 border-blue-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer hover:border hover:border-blue-500 focus:border-blue-500 border-1 hover:border-t-4">
             <img
               src={Port}
               alt="Portfolio Website Development"
@@ -26,7 +26,7 @@ const Services: React.FC = () => {
               We design and develop custom portfolio websites that are fully responsive and optimized for all devices.
             </p>
           </div>
-          <div className="bg-neutral-900 shadow-lg rounded-lg p-6 border-t-4 border-green-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+          <div className="bg-neutral-900 shadow-lg rounded-lg p-6 border-t-4 border-green-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer hover:border hover:border-green-500 focus:border-green-500 border-1 hover:border-t-4">
             <img
               src={Seo}
               alt="SEO Optimization"
@@ -37,7 +37,7 @@ const Services: React.FC = () => {
               Our websites come with built-in SEO features to help you rank better on search engines and get noticed.
             </p>
           </div>
-          <div className="bg-neutral-900 shadow-lg rounded-lg p-6 border-t-4 border-red-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+          <div className="bg-neutral-900 shadow-lg rounded-lg p-6 border-t-4 border-red-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer hover:border hover:border-red-500 focus:border-red-500 border-1 hover:border-t-4">
             <img
               src={Support}
               alt="Maintenance & Support"
@@ -48,7 +48,7 @@ const Services: React.FC = () => {
               We offer a full year of hosting, maintenance, and support to ensure your site stays up-to-date and secure.
             </p>
           </div>
-          <div className="bg-neutral-900 shadow-lg rounded-lg p-6 border-t-4 border-purple-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+          <div className="bg-neutral-900 shadow-lg rounded-lg p-6 border-t-4 border-purple-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer hover:border hover:border-purple-500 focus:border-purple-500 border-1 hover:border-t-4">
             <img
               src={Ecom}
               alt="E-commerce Development"
@@ -59,7 +59,7 @@ const Services: React.FC = () => {
               We build high-performance e-commerce platforms that drive sales and provide a seamless shopping experience.
             </p>
           </div>
-          <div className="bg-neutral-900 shadow-lg rounded-lg p-6 border-t-4 border-orange-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+          <div className="bg-neutral-900 shadow-lg rounded-lg p-6 border-t-4 border-orange-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer hover:border hover:border-orange-500 focus:border-orange-500 border-1 hover:border-t-4">
             <img
               src={Web}
               alt="Web Application Development"
@@ -70,7 +70,7 @@ const Services: React.FC = () => {
               We create scalable web applications tailored to your business needs, ensuring performance and usability.
             </p>
           </div>
-          <div className="bg-neutral-900 shadow-lg rounded-lg p-6 border-t-4 border-teal-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+          <div className="bg-neutral-900 shadow-lg rounded-lg p-6 border-t-4 border-teal-500 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer hover:border hover:border-teal-500 focus:border-teal-500 border-1 hover:border-t-4">
             <img
               src={Uiux}
               alt="UI/UX Design"

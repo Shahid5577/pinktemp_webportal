@@ -37,12 +37,12 @@ const Header: React.FC = () => {
 
         
         <button onClick={toggleNav} className="md:hidden text-gray-700 font-bold focus:outline-none">
-          <Bars3Icon className="h-6 w-6" />
+          <Bars3Icon className="h-6 w-6 text-white" />
         </button>
       </div>
 
       {isNavOpen && (
-        <nav className="md:hidden bg-white shadow-md mt-2">
+        <nav className="md:hidden bg-neutral-900 shadow-md mt-2 w-[90%] mx-auto">
           <ul className="flex flex-col items-center space-y-2 py-4">
             <li>
               <Link to="/about" onClick={closeNav} className="text-zinc-50 hover:text-green-500 font-semi-bold transition duration-300">About</Link>
